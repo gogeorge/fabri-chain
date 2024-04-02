@@ -3,7 +3,7 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="~{layout}">
 <head>
-  <title>Club Create</title>
+  <title>Cloth Create</title>
 </head>
 <body class="d-flex flex-column">
 
@@ -11,8 +11,8 @@
     <header class="py-5 bg-light border-bottom mb-4">
       <div class="container">
         <div class="text-center my-5">
-          <h1 class="fw-bolder" th:text="${club.title}"></h1>
-          <p class="lead mb-0">Charlotte, NC</p>
+          <h1 class="fw-bolder" th:text="${cloth.title}"></h1>
+          <!-- <p class="lead mb-0">Charlotte, NC</p> -->
         </div>
       </div>
     </header>
@@ -23,31 +23,16 @@
         <div class="col-lg-8">
           <!-- Featured blog post-->
           <div class="card mb-4">
-            <a href="#!"><img class="card-img-top" th:src="${club.photoUrl}" alt="..." /></a>
+            <a href="#!"><img class="card-img-top" th:src="${cloth.photoUrl}" alt="..." /></a>
             <div class="card-body">
-              <div class="small text-muted" th:text="${club.createdOn}"></div>
-              <h2 class="card-title">About this running club</h2>
-              <p class="card-text" th:text="${club.content}"></p>
-              <div th:if="${user.id} == ${club.createdBy.id}">
-              <a class="btn btn-primary" th:href="@{/clubs/{clubId}/delete(clubId=${club.id})}">Delete</a>
-              <a class="btn btn-primary" th:href="@{/events/{clubId}/new(clubId=${club.id})}">Create Event</a>
+              <div class="small text-muted" th:text="${cloth.createdOn}"></div>
+              <h2 class="card-title">About this garment</h2>
+              <p class="card-text" th:text="${cloth.content}"></p>
+              <h2 class="card-title">About its sustainability</h2>
+              <p class="card-text"></p>
+              <!-- <div th:if="${user.id} == ${cloth.createdBy.id}"> -->
+              <!-- <a class="btn btn-primary" th:href="@{/clothes/{clothId}/delete(clothId=${cloth.id})}">Delete</a> -->
               </div>
-            </div>
-          </div>
-          <!-- Nested row for non-featured blog posts-->
-          <div class="row">
-            <div class="col-lg-6">
-              <!-- Blog post-->
-              <div th:each="event :${club.events}" class="card mb-4">
-                <a href="#!"><img class="card-img-top" th:src="${event.photoUrl}" alt="..." /></a>
-                <div class="card-body">
-                  <div class="small text-muted">January 1, 2022</div>
-                  <h2 th:text="${event.name}"class="card-title h4"></h2>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                  <a class="btn btn-primary" th:href="@{/events/{eventId}(eventId=${event.id})}">More</a>
-                </div>
-              </div>
-              <!-- Blog post-->
             </div>
           </div>
           <!-- Pagination-->
@@ -83,9 +68,9 @@
               <div class="row">
                 <div class="col-sm-6">
                   <ul class="list-unstyled mb-0">
-                    <li><a href="#!">Road Runner</a></li>
-                    <li><a href="#!">Trail</a></li>
-                    <li><a href="#!">Marathon</a></li>
+                    <li><a href="#!">Outerwear</a></li>
+                    <li><a href="#!">Pants</a></li>
+                    <li><a href="#!">Accessories</a></li>
                   </ul>
                 </div>
               </div>

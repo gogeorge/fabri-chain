@@ -3,13 +3,13 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="~{layout}">
 <head>
-  <title>Club Edit</title>
+  <title>Cloth Edit</title>
 </head>
 <body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
   <section layout:fragment="body" class="py-5">
     <div class="container">
-      <form role="form" method="post" th:action="@{/clubs/{clubId}/edit(clubId=${club.id})}" th:object="${club}">
+      <form role="form" method="post" th:action="@{/cloths/{clothId}/edit(clothId=${cloth.id})}" th:object="${cloth}">
         <input type="hidden" th:field="*{id}">
         <div class="form-row">
           <div class="form-group col-md-6">

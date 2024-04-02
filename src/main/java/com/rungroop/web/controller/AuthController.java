@@ -48,6 +48,6 @@ public class AuthController {
             return "register";
         }
         userService.saveUser(user);
-        return "redirect:/clubs?success";
+        return "redirect:/clothes?success";
     }
 }

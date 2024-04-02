@@ -1,0 +1,20 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+  <title>Contact</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+  <section layout:fragment="body" class="py-5">
+    <div class="container">
+        CONTACT PAGE (PLZZ)
+        <p>User's email: <span th:text="${user}"></span></p>
+        <p th:if="${user != null}" th:text="${userEmail}">User's email: [user not found]</p>
+
+    </div>
+  </section>
+</main>
+</body>
+</html>

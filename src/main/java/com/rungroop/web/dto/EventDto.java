@@ -1,6 +1,6 @@
 package com.rungroop.web.dto;
 
-import com.rungroop.web.models.Club;
+import com.rungroop.web.models.Cloth;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,5 +26,5 @@ public class EventDto {
     private String photoUrl;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
-    private Club club;
+    private Cloth club;
 }

@@ -3,6 +3,8 @@ package com.rungroop.web.dto;
 import com.rungroop.web.models.UserEntity;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,7 +17,7 @@ import java.util.List;
 
 @Data
 @Builder
-public class ClubDto {
+public class ClothesDto {
     private Long id;
     @NotEmpty(message = "Club title should not be empty")
     private String title;

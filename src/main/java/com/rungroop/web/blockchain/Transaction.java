@@ -1,3 +1,5 @@
+package com.rungroop.web.blockchain;
+
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;

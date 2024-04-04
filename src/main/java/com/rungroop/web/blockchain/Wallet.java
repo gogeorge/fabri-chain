@@ -1,3 +1,5 @@
+package com.rungroop.web.blockchain;
+
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;

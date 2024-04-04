@@ -29,4 +29,5 @@ public class ClothesDto {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
     private List<EventDto> events;
+    private String blockChain;
 }

@@ -1,9 +1,16 @@
+package com.rungroop.web.blockchain;
+
+import java.io.File;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Dictionary;
 import java.util.List;
 import java.util.Random;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class InjectedExample {
     public static void main(String[] args) throws NoSuchAlgorithmException, InterruptedException {
@@ -42,5 +49,23 @@ public class InjectedExample {
 
         System.out.println(blockchain);
 
+        // blockchain to json
+
+        // String jsonData = "{\"transactions\": [{ \"source\":" + rmWallet.getName() + ", \"dest\":" + fpWallet.getName() + ", \"quantity\":" + 23L + "}]}";
+        String jsonData = "{\"transactions\": [{ \"source\": \"Brazil Cotton Inc\", \"dest\": \"Mexico Fabrics ltd\", \"quantity\":" + 23L + "}]}";
+        
+        System.out.println(jsonData);
+
+        try {
+            // Create ObjectMapper object
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            // Write JSON data to file
+            objectMapper.writeValue(new File("src/main/java/com/rungroop/web/blockchain/data.json"), objectMapper.readTree(jsonData));
+
+            System.out.println("JSON data has been written to data.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

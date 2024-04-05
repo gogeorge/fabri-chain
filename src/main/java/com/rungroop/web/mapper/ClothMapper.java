@@ -13,21 +13,33 @@ public class ClothMapper {
             try {
                 // Create ObjectMapper object
                 ObjectMapper objectMapper = new ObjectMapper();
+    
+                // Read JSON data
+                JsonNode jsonNode = objectMapper.readTree(new File("src/main/java/com/rungroop/web/blockchain/data.json"));
+    
+                // Iterate over each block
+                for (JsonNode blockNode : jsonNode) {
+                    // Get transactions array for each block
+                    JsonNode transactionsNode = blockNode.get("transactions");
+                    System.out.println("Transactions for Block:");
+                    // Iterate over each transaction in the transactions array
+                    for (JsonNode transactionNode : transactionsNode) {
+                        String source = transactionNode.get("source").asText();
+                        String destination = transactionNode.get("destination").asText();
+                        long quantity = transactionNode.get("quantity").asLong();
+                        // System.out.println("Source: " + source + ", Destination: " + destination + ", Quantity: " + quantity);
+                    }
 
-                // Read JSON data from file
-                JsonNode jsonData = objectMapper.readTree(new File("src/main/java/com/rungroop/web/blockchain/data.json"));
+                }
 
-                String source = jsonData.get("transactions").get(0).get("source").asText();
-                String dest = jsonData.get("transactions").get(0).get("dest").asText();
-                long quantity = jsonData.get("transactions").get(0).get("quantity").asLong();
+                String source = jsonNode.get(0).get("transactions").get(0).get("source").asText();
+                String destination = jsonNode.get(0).get("transactions").get(0).get("destination").asText();
+                long quantity = jsonNode.get(0).get("transactions").get(0).get("quantity").asLong();
+                return "Source: " + source + ", Destination: " + destination + ", Quantity: " + quantity;
 
-
-                // Print the extracted source
-                System.out.println("Source: " + source);
-                return source + " -> " + dest + ": " + quantity + " quantity wasted";
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-                return "no-chain-found";
+                return "no-chain";
             }
         }
 

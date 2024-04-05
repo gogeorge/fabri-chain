@@ -66,6 +66,10 @@ public class Transaction {
         return source;
     }
 
+    public Wallet getDestination() {
+        return source;
+    }
+
     public long getQuantity() {
         return quantity;
     }
@@ -73,4 +77,5 @@ public class Transaction {
     public String toString() {
         return source + ":" + destination + ":" + quantity;
     }
+
 }

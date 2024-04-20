@@ -19,9 +19,13 @@ public class InjectedExample {
     public static void main(String[] args) throws NoSuchAlgorithmException, InterruptedException {
         Wallet w1 = new Wallet("Genesis Sender");
         Wallet w2 = new Wallet("Genesis Receiver");   
+        ArrayList<String> data = new ArrayList<>();
+        Random random = new Random();
+
+        data.add(random.nextInt(1000) + 1, "clo1903123:clo1234567:clo00039287");
         
         // quantity (1L) can be interpreted as waste
-        List<Transaction> genesisTransaction = Arrays.asList(new Transaction(w1, w2, 1L, new Date().getTime()));
+        List<Transaction> genesisTransaction = Arrays.asList(new Transaction(w1, w2, data, new Date().getTime()));
         BlockChain blockchain = new BlockChain(new ArrayList<>(Arrays.asList(new Block(
             "Genesis Block", 
             "0",
@@ -34,21 +38,24 @@ public class InjectedExample {
         Wallet sfWallet = new Wallet("SewingLabs co (Sewing Fabrics)");
         Wallet dWallet = new Wallet("Zara (Dsitributor)");
 
-        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, 23L, new Date().getTime()));
+
+        data.add(random.nextInt(1000) + 1, "clo1903123:clo1234567:clo00039287");
+
+        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, data, new Date().getTime()));
         // Thread.sleep(200);
-        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, 212L, new Date().getTime()));
+        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, data, new Date().getTime()));
         // Thread.sleep(200);
-        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, 40L, new Date().getTime()));
+        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, data, new Date().getTime()));
         // Thread.sleep(200);
-        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, 33L, new Date().getTime()));
+        blockchain.receiveTransaction(new Transaction(rmWallet, fpWallet, data, new Date().getTime()));
         // Thread.sleep(1000);
 
-        blockchain.receiveTransaction(new Transaction(fpWallet, sfWallet, 23L, new Date().getTime()));
+        blockchain.receiveTransaction(new Transaction(fpWallet, sfWallet, data, new Date().getTime()));
         // Thread.sleep(200);
-        blockchain.receiveTransaction(new Transaction(fpWallet, sfWallet, 25L, new Date().getTime()));
+        blockchain.receiveTransaction(new Transaction(fpWallet, sfWallet, data, new Date().getTime()));
         // Thread.sleep(1000);
 
-        blockchain.receiveTransaction(new Transaction(sfWallet, dWallet, 4L, new Date().getTime()));
+        blockchain.receiveTransaction(new Transaction(sfWallet, dWallet, data, new Date().getTime()));
 
         System.out.println(blockchain);
 

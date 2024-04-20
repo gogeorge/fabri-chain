@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SignatureException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Wallet {
 
     public Transaction createTransaction(Wallet source, Wallet destination, long quantity) {
         if (validateWallet(publicKey, privateKey)) {
-            Transaction newTransaction = new Transaction(source, destination, quantity, new Date().getTime());
+            Transaction newTransaction = new Transaction(source, destination, new ArrayList<>(), new Date().getTime());
             try {
                 byte[] signature = WalletUtil.sign(newTransaction.getDataToSign(), privateKey);
                 newTransaction.setSignature(signature);

@@ -9,31 +9,53 @@
 <main class="flex-shrink-0">
     <section layout:fragment="body" class="py-5">
         <div class="container px-5 my-5">
-            <div th:if="${param.success}" class="alert alert-success">
-                You are registered successfully!
-            </div>
-            <div class="text-center mb-5" style="position: relative;">
-                <img src="/assets/acw.jpg" style="width: 150%; position: relative; left: -25%; top: 30%;" />
+            <!-- <div class="text-center mb-5" style="position: relative;">
+                <video autoplay muted loop style="width: 150%; position: relative; left: -25%; top: -150px; z-index: -1;">
+                    <source src="/assets/fabrichain-clip.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <img src="/assets/ldo.png" style="width: 100px; height: 100px;position: relative; left: -25%; top: -150px; z-index: 2;" /> 
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background-color: rgba(255, 255, 255, 0.7); padding: 10px;">
                     <h1 class="fw-bolder">Find Sustainable Clothes</h1>
                     <p class="lead fw-normal text-muted mb-0">via the BlockChain</p>
                 </div>
+            </div> -->
+
+            <div class="position-relative">
+                <video autoplay muted loop style="width: 150%; position: relative; left: -25%; top: -150px; z-index: -1;">
+                    <source src="/assets/fabrichain-clip.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <img src="/assets/ldo.png" style="width: 350px; height: 350px; position: absolute; top: 300px; left: 50%; transform: translate(-50%, -50%); opacity: 0.7; z-index: 2;" /> 
+                <img src="/assets/ldo-text.png" style="width: 450px; height: 300px; position: absolute; top: 510px; left: 50%; transform: translate(-50%, -50%); opacity: 0.7; z-index: 2;" /> 
+
+                <!-- <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background-color: rgba(255, 255, 255, 0.7); padding: 10px; z-index: 1;">
+                    <h1 class="fw-bolder">Find Sustainable Clothes</h1>
+                    <p class="lead fw-normal text-muted mb-0">via the BlockChain</p>
+                </div> -->
+                <!-- <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1;">
+                    <h1 class="fw-bolder">Lua des Ombres</h1>
+                    <p class="lead fw-normal text-muted mb-0">via the BlockChain</p>
+                </div> -->
             </div>
+            
                             
             <div class="row gx-5">
-                <div th:each="cloth :${clothes}" class="col-lg-6 mb-2">
-                    <div class="position-relative mb-3">
-                        <img class="img-fluid rounded-3 mb-3" th:src="${cloth.photoUrl}" alt="..." />
-                        <a th:text="${cloth.title}" class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
+                <div th:each="cloth :${clothes}" class="col-lg-4">
+                    <div class="position-relative mb-3" style="width: 400px; height: 400px; display: block;">
+                        <a th:href="@{/clothes/{clothId}(clothId=${cloth.id})}">
+                            <!-- border: 1px solid lightgrey; -->
+                            <img class="img-fluid rounded-3 mb-3" th:src="${cloth.photoUrl}" alt="..." style=""/>
+                            <div style="position: absolute; top: 8%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                <a th:text="${cloth.title}" class="h6 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
+                            </div>
+                        </a>
                     </div>
-                    <a class="btn btn-primary" th:href="@{/clothes/{clothId}(clothId=${cloth.id})}">View</a>
-                   <!-- <div th:if="${user.id} == ${cloth.createdBy.id}">
-                        <a class="btn btn-primary" th:href="@{/clothes/{clothId}/edit(clothId=${cloth.id})}">Edit</a>
-                    </div> -->
                 </div>
             </div>
         </div>
     </section>
-</main>
+</main> 
 </body>
 </html>

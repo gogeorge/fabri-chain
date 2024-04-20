@@ -4,20 +4,22 @@ import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Transaction {
     
     private Wallet source;
     private Wallet destination;
-    private long quantity;
+    private ArrayList<String> data = new ArrayList<>(); // [quantity, productlist( : )]
     private long timeStamp;
     private byte[] signature;
 
-    public Transaction(Wallet source, Wallet destination, long quantity, long timeStamp) {
+    public Transaction(Wallet source, Wallet destination, ArrayList<String> data, long timeStamp) {
         this.source = source;
         this.destination = destination;
-        this.quantity = quantity;
+        this.data = data;
         this.timeStamp = timeStamp;
     }
 
@@ -27,7 +29,8 @@ public class Transaction {
             return false;
         }
         // Check for non-negative amount
-        if (quantity <= 0) {
+        // if (Integer.parseInt(data[0]) <= 0) { DID NOT WORK
+        if (Integer.parseInt(data.get(0)) <= 0) {
             return false;
         }
         return true;
@@ -35,7 +38,7 @@ public class Transaction {
 
     public byte[] getDataToSign() {
         // Concatenate relevant transaction data into a byte array
-        String data = source.getAddress() + destination.getAddress() + quantity + timeStamp;
+        String data = source.getAddress() + destination.getAddress() + getQuantity() + timeStamp;
         return data.getBytes(StandardCharsets.UTF_8);
     }
 
@@ -67,15 +70,19 @@ public class Transaction {
     }
 
     public Wallet getDestination() {
-        return source;
+        return destination;
     }
 
-    public long getQuantity() {
-        return quantity;
+    public String getQuantity() {
+        return data.get(0);
+    }
+
+    public String[] getProductList() {
+        return data.get(1).split(":");
     }
     
     public String toString() {
-        return source + ":" + destination + ":" + quantity;
+        return source + ":" + destination + ":" + data.get(0);
     }
 
 }

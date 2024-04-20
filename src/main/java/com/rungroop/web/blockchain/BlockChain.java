@@ -48,7 +48,7 @@ public class BlockChain {
             System.out.println(currentBlock.getTimeStamp());
             System.out.println("valid transaction " + currentBlock.getTransactions().size() + ", " + chain.size());
             currentBlock.addTransaction(transaction);
-            transaction.getSource().setBalance(transaction.getQuantity());
+            transaction.getSource().setBalance(Integer.parseInt(transaction.getQuantity()));
             System.out.println("Balance (Block_" + chain.size() + "): " + transaction.getSource().getBalance() + " " + transaction.getQuantity() + " " + transaction.getSource().getName());
             if (currentBlock.getTransactions().size() >= transactionLimit) {
                 System.out.println("limit reached: " + currentBlock.getTransactions());

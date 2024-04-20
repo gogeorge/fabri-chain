@@ -29,7 +29,6 @@ public class ClothMapper {
                         long quantity = transactionNode.get("quantity").asLong();
                         // System.out.println("Source: " + source + ", Destination: " + destination + ", Quantity: " + quantity);
                     }
-
                 }
 
                 String source = jsonNode.get(0).get("transactions").get(0).get("source").asText();

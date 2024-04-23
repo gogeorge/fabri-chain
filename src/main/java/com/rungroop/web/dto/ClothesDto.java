@@ -19,8 +19,18 @@ import java.util.List;
 @Builder
 public class ClothesDto {
     private Long id;
-    @NotEmpty(message = "Club title should not be empty")
+    @NotEmpty(message = "Cloth title should not be empty")
     private String title;
+    @NotEmpty(message = "Price link should not be empty")
+    private String price; // price can have discount syntax: 199 dis 99
+    @NotEmpty(message = "Colors should not be empty")
+    private String colors;
+    @NotEmpty(message = "Collection should not be empty")
+    private String collection;
+    @NotEmpty(message = "Size should not be empty")
+    private String size;
+    @NotEmpty(message = "Material should not be empty")
+    private String material;
     @NotEmpty(message = "Photo link should not be empty")
     private String photoUrl;
     @NotEmpty(message = "Content should not be empty")

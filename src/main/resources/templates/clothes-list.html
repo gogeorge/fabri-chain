@@ -9,17 +9,6 @@
 <main class="flex-shrink-0">
     <section layout:fragment="body" class="py-5">
         <div class="container px-5 my-5">
-            <!-- <div class="text-center mb-5" style="position: relative;">
-                <video autoplay muted loop style="width: 150%; position: relative; left: -25%; top: -150px; z-index: -1;">
-                    <source src="/assets/fabrichain-clip.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <img src="/assets/ldo.png" style="width: 100px; height: 100px;position: relative; left: -25%; top: -150px; z-index: 2;" /> 
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background-color: rgba(255, 255, 255, 0.7); padding: 10px;">
-                    <h1 class="fw-bolder">Find Sustainable Clothes</h1>
-                    <p class="lead fw-normal text-muted mb-0">via the BlockChain</p>
-                </div>
-            </div> -->
 
             <div class="position-relative">
                 <video autoplay muted loop style="width: 150%; position: relative; left: -25%; top: -150px; z-index: -1;">
@@ -42,13 +31,81 @@
             
                             
             <div class="row gx-5">
-                <div th:each="cloth :${clothes}" class="col-lg-4">
-                    <div class="position-relative mb-3" style="width: 400px; height: 400px; display: block;">
+                <div th:each="cloth :${clothes}" class="col-lg-4" style="width: 600px; height: 275px; display: block; border: 1px solid lightgrey;">
+                    <div class="position-relative mb-3 text-decoration-none link-dark" >
                         <a th:href="@{/clothes/{clothId}(clothId=${cloth.id})}">
                             <!-- border: 1px solid lightgrey; -->
-                            <img class="img-fluid rounded-3 mb-3" th:src="${cloth.photoUrl}" alt="..." style=""/>
-                            <div style="position: absolute; top: 8%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                                <a th:text="${cloth.title}" class="h6 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
+                            <div class="position-relative mb-3 " style="width: 145% !important; height: 100%;">
+                                <a th:href="@{/clothes/{clothId}(clothId=${cloth.id})}" class="text-decoration-none link-dark">
+                                    <div class="row align-items-center" >
+                                        <div class="col-md-4">
+                                            <img class="img-fluid rounded-3 mb-3" 
+                                                 th:src="${cloth.photoUrl}" 
+                                                 alt="..." 
+                                                 />
+                                        </div>
+                                        <div class="col-md-4" style="position: relative; left: -10%;">
+                                            <img class="img-fluid rounded-3 mb-3"
+                                                 src="/assets/vertical-divider.png"
+                                            />
+                                        </div>
+                                        <div class="col-md-4 d-flex flex-column justify-content-center" style="position: relative; left: -25%;">
+                                            <p 
+                                                th:text="${cloth.price}" 
+                                                class="h6" 
+                                                style="font-family: 'Academy Engraved LET', sans-serif;"
+                                            >399</p>
+
+                                            <!-- svg circles -->
+                                            <th:block th:with="colorArray=${#strings.arraySplit(cloth.colors, '-')}">
+                                                <div style="position: relative; top: -10px;">
+                                                    <svg th:each="color : ${colorArray}" height="20" width="20" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
+                                                        <circle r="8" cx="10" cy="10" th:style="'fill: ' + ${color}" stroke="grey" stroke-width="1"/>
+                                                    </svg>
+                                                </div>
+                                            </th:block>
+
+                                            <p th:text="${cloth.material}" class="h6" style="font-family: 'Academy Engraved LET', sans-serif;">399</p>
+                                            <hr style="width: 30%; color: grey; position: relative; top: -3px; left: 60px;"/>
+                                            <p 
+                                                th:text="${cloth.content}" 
+                                                class="h6" 
+                                                style="font-family: 'Academy Engraved LET', sans-serif; position: relative; top: -5px;">399</p>
+                                        </div>
+                                    </div>
+                                    
+<!--                                     
+                                    <div style="position: absolute; top: 8%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                        <a th:text="${cloth.title}" class="h6 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
+                                    </div> -->
+                                </a>
+                            </div>
+                            
+                            
+                            <div style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                <a 
+                                    th:text="${cloth.title}" 
+                                    class="h6 fw-bolder text-decoration-none link-dark stretched-link" 
+                                    style="position: relative; left: -80%; top: 50%; font-family: 'Academy Engraved LET';"
+                                    href="#!"
+                                >Project name</a>
+                                <p 
+                                    th:text="${cloth.collection}" 
+                                    class="text-sm text-decoration-none link-grey link-dark stretched-link"
+                                    style="font-size: 13px; color: grey; position: absolute; right: -77%; top: 15%;"
+                                >Collection name</p>
+                            </div>
+                            <div style="position: relative; left: 535px; top: -245px;">
+                                <th:block 
+                                    th:with="sizeArray=${#strings.arraySplit(cloth.size, ',')}"
+                                >
+                                    <div 
+                                        th:each="size : ${sizeArray}" 
+                                        style="width: 25px; height: 18px; border: 1px solid lightgrey; margin: 5px;"
+                                    >
+                                        <p th:text="${size}" class="h6" style="font-family: 'Academy Engraved LET', sans-serif; text-align: center; padding-top: 2px;">399</p>
+                                    </div>
+                                </th:block>
                             </div>
                         </a>
                     </div>

@@ -9,6 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -22,6 +24,11 @@ public class Cloth {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private String price;
+    private String colors;
+    private String collection;
+    private String size;
+    private String material;
     private String photoUrl;
     private String content;
     private String blockChain;

@@ -21,7 +21,7 @@ public class ClothMapper {
                 for (JsonNode blockNode : jsonNode) {
                     // Get transactions array for each block
                     JsonNode transactionsNode = blockNode.get("transactions");
-                    System.out.println("Transactions for Block:");
+                    // System.out.println("Transactions for Block:");
                     // Iterate over each transaction in the transactions array
                     for (JsonNode transactionNode : transactionsNode) {
                         String source = transactionNode.get("source").asText();
@@ -46,6 +46,11 @@ public class ClothMapper {
             Cloth clothDto = Cloth.builder()
                     .id(cloth.getId())
                     .title(cloth.getTitle())
+                    .price(cloth.getPrice())
+                    .colors(cloth.getColors())
+                    .collection(cloth.getCollection())
+                    .material(cloth.getMaterial())
+                    .size(cloth.getSize())
                     .photoUrl(cloth.getPhotoUrl())
                     .content(cloth.getContent())
                     .blockChain(getBlockChainJSON())
@@ -60,6 +65,11 @@ public class ClothMapper {
             ClothesDto clothDto = ClothesDto.builder()
                     .id(cloth.getId())
                     .title(cloth.getTitle())
+                    .price(cloth.getPrice())
+                    .colors(cloth.getColors())
+                    .collection(cloth.getCollection())
+                    .material(cloth.getMaterial())
+                    .size(cloth.getSize())
                     .photoUrl(cloth.getPhotoUrl())
                     .content(cloth.getContent())
                     .blockChain(getBlockChainJSON())

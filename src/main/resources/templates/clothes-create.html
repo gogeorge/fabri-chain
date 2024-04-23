@@ -23,16 +23,73 @@
           <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
         </div>
         <div class="form-group col-md-6">
-          <label for="photoUrl">Photourl</label>
+
+          <label for="price">Price</label>
           <input
                   type="text"
                   class="form-control"
-                  id="photoUrl"
-                  name="photoUrl"
-                  th:field="*{photoUrl}"
-                  placeholder="Photo Url">
-          <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
+                  id="price"
+                  name="price"
+                  th:field="*{price}"
+                  placeholder="Price">
+          <p th:if="${#fields.hasErrors('price')}" class="text-danger" th:errors="*{title}"></p>
         </div>
+      <div class="form-group col-md-6">
+
+        <label for="colors">Colors</label>
+        <input
+                type="text"
+                class="form-control"
+                id="colors"
+                name="colors"
+                th:field="*{colors}"
+                placeholder="colors">
+        <p th:if="${#fields.hasErrors('colors')}" class="text-danger" th:errors="*{title}"></p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="size">Size</label>
+        <input
+                type="text"
+                class="form-control"
+                id="size"
+                name="size"
+                th:field="*{size}"
+                placeholder="size">
+        <p th:if="${#fields.hasErrors('size')}" class="text-danger" th:errors="*{size}"></p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="material">Material</label>
+        <input
+                type="text"
+                class="form-control"
+                id="material"
+                name="material"
+                th:field="*{material}"
+                placeholder="material">
+        <p th:if="${#fields.hasErrors('material')}" class="text-danger" th:errors="*{material}"></p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="collection">Collection</label>
+        <input
+                type="text"
+                class="form-control"
+                id="collection"
+                name="collection"
+                th:field="*{collection}"
+                placeholder="collection">
+        <p th:if="${#fields.hasErrors('collection')}" class="text-danger" th:errors="*{collection}"></p>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="photoUrl">Photourl</label>
+        <input
+                type="text"
+                class="form-control"
+                id="photoUrl"
+                name="photoUrl"
+                th:field="*{photoUrl}"
+                placeholder="Photo Url">
+        <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
+      </div>
       </div>
       <div class="form-group mb-3">
         <label for="content">Content</label>

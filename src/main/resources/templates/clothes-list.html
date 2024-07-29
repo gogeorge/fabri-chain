@@ -65,12 +65,12 @@
                                                 </div>
                                             </th:block>
 
-                                            <p th:text="${cloth.material}" class="h6" style="font-family: 'Academy Engraved LET', sans-serif;">399</p>
+                                            <p th:text="${cloth.material}" class="h6" style="font-family: 'Academy Engraved LET', sans-serif; width: 150px;">399</p>
                                             <hr style="width: 30%; color: grey; position: relative; top: -3px; left: 60px;"/>
                                             <p 
                                                 th:text="${cloth.content}" 
                                                 class="h6" 
-                                                style="font-family: 'Academy Engraved LET', sans-serif; position: relative; top: -5px;">399</p>
+                                                style="font-family: 'Academy Engraved LET', sans-serif; position: relative; top: -5px; width: 200px;">399</p>
                                         </div>
                                     </div>
                                     
@@ -82,11 +82,11 @@
                             </div>
                             
                             
-                            <div style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                            <div style="position: absolute; top: 8%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
                                 <a 
                                     th:text="${cloth.title}" 
                                     class="h6 fw-bolder text-decoration-none link-dark stretched-link" 
-                                    style="position: relative; left: -80%; top: 50%; font-family: 'Academy Engraved LET';"
+                                    style="position: relative; left: -79%; top: 50%; font-family: 'Academy Engraved LET';"
                                     href="#!"
                                 >Project name</a>
                                 <p 
@@ -95,7 +95,7 @@
                                     style="font-size: 13px; color: grey; position: absolute; right: -77%; top: 15%;"
                                 >Collection name</p>
                             </div>
-                            <div style="position: relative; left: 535px; top: -245px;">
+                            <div style="position: relative; left: 535px; top: -265px;">
                                 <th:block 
                                     th:with="sizeArray=${#strings.arraySplit(cloth.size, ',')}"
                                 >
